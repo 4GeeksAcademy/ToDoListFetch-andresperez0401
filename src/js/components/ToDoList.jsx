@@ -39,7 +39,7 @@ export function ToDoList() {
     let divListaTareas = document.getElementById("divListaTareas");
 
     const children = Array.from(divListaTareas.children);
-    // Si un hijo no es INPUT, lo quitamos
+    // Si un hijo no es INPUT, lo quitamos del div de lista tareas
     children.forEach((child) => {
       if (child.tagName !== "INPUT") {
         divListaTareas.removeChild(child);
