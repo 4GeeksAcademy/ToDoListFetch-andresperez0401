@@ -19,7 +19,6 @@ export function ToDoListFetch() {
           "https://playground.4geeks.com/todo/users/andresperez0401"
         );
 
-
         //Si la respuesta no esta bien, puede que el usuario no este creado en el servidor, eso lo validamos.
         if (!response.ok) {
           let userCreate = await createUser("andresperez0401");
@@ -172,21 +171,22 @@ export function ToDoListFetch() {
           onChange={(e) => setInput(e.target.value)}
         />
         <ul>
-          {tasks.map((task) => {
-            return (
-              <li key={task.id}>
-                {task.label}
-                <button onClick={() => deleteAction(task)}>
-                  <i
-                    className="fa-solid fa-xmark"
-                    style={{ color: "gray" }}
-                    onMouseOver={(e) => (e.target.style.color = "red")}
-                    onMouseOut={(e) => (e.target.style.color = "gray")}
-                  ></i>
-                </button>
-              </li>
-            );
-          })}
+          {tasks &&
+            tasks.map((task) => {
+              return (
+                <li key={task.id}>
+                  {task.label}
+                  <button onClick={() => deleteAction(task)}>
+                    <i
+                      className="fa-solid fa-xmark"
+                      style={{ color: "gray" }}
+                      onMouseOver={(e) => (e.target.style.color = "red")}
+                      onMouseOut={(e) => (e.target.style.color = "gray")}
+                    ></i>
+                  </button>
+                </li>
+              );
+            })}
         </ul>
       </div>
       <div className="card-footer pieDeCarta">{tasks.length} task left.</div>
